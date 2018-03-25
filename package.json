@@ -1,0 +1,46 @@
+{
+  "name": "postcss-nest-atrules",
+  "version": "0.1.0",
+  "description": "PostCSS plugin to nest atrules inside their rules (inverse of unwarpping)",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "css-in-js",
+    "nesting",
+    "nested"
+  ],
+  "author": "Giuseppe Gurgone <giuseppeg@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": "giuseppeg/postcss-nest-atrules",
+  "bugs": {
+    "url": "https://github.com/giuseppeg/postcss-nest-atrules/issues"
+  },
+  "homepage": "https://github.com/giuseppeg/postcss-nest-atrules",
+  "dependencies": {
+    "postcss": "^6.0.16"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "prettier": "^1.11.1",
+    "xo": "^0.20.3"
+  },
+  "scripts": {
+    "test": "xo && jest",
+    "test:unit": "jest",
+    "format": "prettier --single-quote --no-semi --write *.js"
+  },
+  "xo": {
+    "envs": "node",
+    "extends": "prettier",
+    "ignores": [
+      "lib/style-transform.js"
+    ],
+    "rules": {
+      "capitalized-comments": 0
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

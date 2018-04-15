@@ -15,7 +15,7 @@ module.exports = postcss.plugin('postcss-nest-atrules', () => {
         const theRule = rule.clone()
         const theAtRule = atRule.clone()
         const parent = rule.parent
-        if (parent.type === 'atrule' && parent.name !== atRule.name) {
+        if (parent && parent.type === 'atrule' && parent.name !== atRule.name) {
           const theParentAtRule = parent.clone()
           theParentAtRule.nodes = theRule.nodes
           theAtRule.nodes = [theParentAtRule]

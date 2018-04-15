@@ -139,3 +139,15 @@ exports[`simple 1`] = `
     } }
   "
 `;
+
+exports[`without parent 1`] = `
+"
+      .a {
+    @media (min-width: 3em) { display: inline-block
+    } }
+.b {@media (min-width: 3em) {
+        :focus { background-color: yellow; }
+    }
+      }
+  "
+`;

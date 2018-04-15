@@ -168,3 +168,16 @@ it('merges with existing ones', async () => {
 
   expect(css).toMatchSnapshot()
 })
+
+it('without parent', async () => {
+  const css = await run(`
+    @media (min-width: 3em) {
+      .a { display: inline-block; }
+      .b {
+        :focus { background-color: yellow; }
+      }
+    }
+  `)
+
+  expect(css).toMatchSnapshot()
+})

@@ -102,6 +102,15 @@ exports[`many occourences 1`] = `
   "
 `;
 
+exports[`merges with existing ones 1`] = `
+"
+    .a { color: blue;
+    @media (min-width: 3em) {
+        display: block
+    } }
+  "
+`;
+
 exports[`multiple rules 1`] = `
 "
     .a { color: red;

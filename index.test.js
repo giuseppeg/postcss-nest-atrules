@@ -4,7 +4,7 @@ const plugin = require('./')
 
 function run(input) {
   return postcss([plugin()])
-    .process(input)
+    .process(input, { from: undefined })
     .then(result => result.css)
 }
 
@@ -151,6 +151,19 @@ it('big mess', async () => {
     .a { color: red }
       }
     }
+  `)
+
+  expect(css).toMatchSnapshot()
+})
+
+it('merges with existing ones', async () => {
+  const css = await run(`
+    @media (min-width: 3em) {
+      .a {
+        display: block
+      }
+    }
+    .a { color: blue }
   `)
 
   expect(css).toMatchSnapshot()

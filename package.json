@@ -33,12 +33,11 @@
   "xo": {
     "envs": "node",
     "extends": "prettier",
-    "ignores": [
-      "lib/style-transform.js"
-    ],
     "rules": {
-      "capitalized-comments": 0
-    }
+      "capitalized-comments": 0,
+      "unicorn/import-index": 0
+    },
+    "globals": ["expect", "it"]
   },
   "jest": {
     "testEnvironment": "node"

@@ -1,6 +1,6 @@
 {
   "name": "postcss-nest-atrules",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "PostCSS plugin to nest atrules inside their rules (inverse of unwarpping)",
   "keywords": [
     "postcss",
@@ -37,7 +37,10 @@
       "capitalized-comments": 0,
       "unicorn/import-index": 0
     },
-    "globals": ["expect", "it"]
+    "globals": [
+      "expect",
+      "it"
+    ]
   },
   "jest": {
     "testEnvironment": "node"

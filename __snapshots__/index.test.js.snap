@@ -11,7 +11,7 @@ exports[`at-rule alone 1`] = `
 exports[`at-rules alone (inverse order) 1`] = `
 "
         .a {
-    @support (display: flex) {
+    @supports (display: flex) {
       @media (min-width: 50px) { color: red
       }
     } }
@@ -22,7 +22,7 @@ exports[`at-rules alone 1`] = `
 "
         .a {
     @media (min-width: 50px) {
-      @support (display: flex) { color: red
+      @supports (display: flex) { color: red
       }
     } }
   "
@@ -38,14 +38,14 @@ exports[`big mess 1`] = `
     }
 
     @media (min-width: 50px) {
-      @support (display: flex) { color: red
+      @supports (display: flex) { color: red
       }
     }
 
     @media (min-width: 50px) { color: red
     }
 
-    @support (display: flex) {
+    @supports (display: flex) {
       @media (min-width: 50px) { color: red
       }
     } }
@@ -75,6 +75,12 @@ exports[`compound selectors 1`] = `
     .a {
     @media (min-width: 5px) { color: hotpink
     } }
+  "
+`;
+
+exports[`does not nest other at rules like @keyframes and @font-face 1`] = `
+"
+    @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
   "
 `;
 
@@ -126,7 +132,7 @@ exports[`nested at-rules 1`] = `
 "
     .a { display: block;
     @media (min-width: 50px) {
-      @support (display: flex) { color: red
+      @supports (display: flex) { color: red
       }
     } }
   "

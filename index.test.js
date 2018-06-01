@@ -43,7 +43,7 @@ it('nested at-rules', async () => {
   const css = await run(`
     .a { display: block }
     @media (min-width: 50px) {
-      @support (display: flex) {
+      @supports (display: flex) {
         .a { color: red; }
       }
     }
@@ -55,7 +55,7 @@ it('nested at-rules', async () => {
 it('at-rules alone', async () => {
   const css = await run(`
     @media (min-width: 50px) {
-      @support (display: flex) {
+      @supports (display: flex) {
         .a { color: red; }
       }
     }
@@ -66,7 +66,7 @@ it('at-rules alone', async () => {
 
 it('at-rules alone (inverse order)', async () => {
   const css = await run(`
-    @support (display: flex) {
+    @supports (display: flex) {
       @media (min-width: 50px) {
         .a { color: red; }
       }
@@ -140,13 +140,13 @@ it('big mess', async () => {
     @media (min-width: 50px) {
       .c { color: hotpink }
       .d { color: hotpink }
-      @support (display: flex) {
+      @supports (display: flex) {
       .a { color: red }
       }
       .a { color: red }
     }
 
-    @support (display: flex) {
+    @supports (display: flex) {
       @media (min-width: 50px) {
     .a { color: red }
       }
@@ -177,6 +177,14 @@ it('without parent', async () => {
         :focus { background-color: yellow; }
       }
     }
+  `)
+
+  expect(css).toMatchSnapshot()
+})
+
+it('does not nest other at rules like @keyframes and @font-face', async () => {
+  const css = await run(`
+    @keyframes fade {0% { opacity:0 } 100% { opacity:1}}
   `)
 
   expect(css).toMatchSnapshot()

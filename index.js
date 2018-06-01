@@ -1,5 +1,7 @@
 const postcss = require('postcss')
 
+const nestAtRules = ['media', 'supports', 'document', 'print']
+
 module.exports = postcss.plugin('postcss-nest-atrules', () => {
   return root => {
     const existingRules = {}
@@ -11,6 +13,9 @@ module.exports = postcss.plugin('postcss-nest-atrules', () => {
     })
 
     root.walkAtRules(atRule => {
+      if (!nestAtRules.includes(atRule.name)) {
+        return
+      }
       atRule.walkRules(rule => {
         const theRule = rule.clone()
         const theAtRule = atRule.clone()
